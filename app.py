@@ -11,7 +11,7 @@ def get_db_connection():
         conn = psycopg2.connect(params['database_url'])
         return conn
     except psycopg2.DatabaseError as e:
-        print(f"Database connection error: {e}")
+        print(f"Database connection error: {e}")  # Mensaje de depuración
         return None
 
 @app.route('/')
@@ -53,3 +53,4 @@ def success():
 if __name__ == '__main__':
     from os import environ
     app.run(host='0.0.0.0', port=int(environ.get('PORT', 5000)))
+
